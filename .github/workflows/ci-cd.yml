@@ -25,7 +25,9 @@ jobs:
           pip install pytest
 
       - name: Run tests
-        run: pytest -v
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          pytest -v
 
   deploy:
     needs: build-and-test
